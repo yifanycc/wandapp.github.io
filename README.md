@@ -1,6 +1,6 @@
-# Nerfies
+# Wanda++
 
-This is the repository that contains source code for the [Wanda++ website](https://wandapp.github.io).
+This is the repository that contains source code for the [Wanda++ website]([https://wandapp.github.io](https://yifan-yang.net/wandapp.github.io/)).
 
 If you find Nerfies useful for your work please cite:
 ```
