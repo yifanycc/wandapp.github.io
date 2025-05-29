@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wanda++: Pruning Large Language Models via Regional Gradients</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Wanda++: Pruning Large Language Models via Regional Gradients</h1>
+          <div class="is-size-5 publication-authors">
+  <span class="author-block">Yifan Yang<sup>◊†</sup>,</span>
+  <span class="author-block">Kai Zhen<sup>♣†</sup>,</span>
+  <span class="author-block">Bhavana Ganesh<sup>♣</sup>,</span>
+  <span class="author-block">Aram Galstyan<sup>♣</sup>,</span>
+  <span class="author-block">Goeric Huybrechts<sup>♣</sup>,</span>
+  <span class="author-block">Markus Müller<sup>♣</sup>,</span>
+  <span class="author-block">Jonas M. Kübler<sup>♣</sup>,</span>
+  <span class="author-block">Rupak Vignesh Swaminathan<sup>♣</sup>,</span>
+  <span class="author-block">Athanasios Mouchtaris<sup>♣</sup>,</span>
+  <span class="author-block">Sravan Babu Bodapati<sup>♣</sup>,</span>
+  <span class="author-block">Nathan Susanj<sup>♣</sup>,</span>
+  <span class="author-block">Zheng Zhang<sup>◊</sup>,</span>
+  <span class="author-block">Jack FitzGerald<sup>♣</sup>,</span>
+  <span class="author-block">Abhishek Kumar<sup>♣</sup></span>
+</div>
+
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>◊</sup>University of California, Santa Barbara</span>
+            <span class="author-block"><sup>♣</sup>Amazon AGI</span>
+            <span class="author-block"><sup>†</sup>Equal Contributions</span>
+          </div>
+
+  <div class="column has-text-centered">
+  <div class="publication-links">
+
+    <!-- PDF Link -->
+    <span class="link-block">
+      <a href="https://arxiv.org/pdf/2503.04992"
+         class="external-link button is-normal is-rounded is-dark">
+        <span class="icon">
+            <i class="fas fa-file-pdf"></i>
+        </span>
+        <span>Paper</span>
+      </a>
+    </span>
+
+    <!-- arXiv Link -->
+    <span class="link-block">
+      <a href="https://arxiv.org/abs/2503.04992"
+         class="external-link button is-normal is-rounded is-dark">
+        <span class="icon">
+            <i class="ai ai-arxiv"></i>
+        </span>
+        <span>arXiv</span>
+      </a>
+    </span>
+
+    <!-- Code Link -->
+    <span class="link-block">
+      <a href="https://github.com/TTTTTTris/wandaplus"
+         class="external-link button is-normal is-rounded is-dark">
+        <span class="icon">
+            <i class="fab fa-github"></i>
+        </span>
+        <span>Unofficial Code</span>
+      </a>
+    </span>
+
+    <!-- Uncomment and add more links as needed -->
+    <!--
+    <span class="link-block">
+      <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+         class="external-link button is-normal is-rounded is-dark">
+        <span class="icon">
+            <i class="fab fa-youtube"></i>
+        </span>
+        <span>Video</span>
+      </a>
+    </span>
+    -->
+
+    <!--
+    <span class="link-block">
+      <a href="https://github.com/google/nerfies/releases/tag/0.1"
+         class="external-link button is-normal is-rounded is-dark">
+        <span class="icon">
+            <i class="far fa-images"></i>
+        </span>
+        <span>Data</span>
+      </a>
+    </span>
+    -->
+
+  </div>
+</div>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        Wanda++ can be applied after post-training architectural changes (e.g., pruning, dense-to-MoE) to quickly mitigate degradation before costly recovery training.   </h2>
+    </div>
+  </div>
+</section>
+
+
+<!--<section class="hero is-light is-small">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container">-->
+<!--      <div id="results-carousel" class="carousel results-carousel">-->
+<!--        <div class="item item-steve">-->
+<!--          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/steve.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-chair-tp">-->
+<!--          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/chair-tp.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-shiba">-->
+<!--          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/shiba.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-fullbody">-->
+<!--          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/fullbody.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-blueshirt">-->
+<!--          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/blueshirt.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-mask">-->
+<!--          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/mask.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-coffee">-->
+<!--          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/coffee.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-toby">-->
+<!--          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/toby2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Large Language Models (LLMs) pruning
+seeks to remove unimportant weights for inference speedup with minimal accuracy impact. However, existing methods often suffer from accuracy degradation without fullmodel sparsity-aware fine-tuning. This paper
+presents Wanda++, a novel pruning framework
+that outperforms the state-of-the-art methods
+by utilizing decoder-block-level regional gradients. Specifically, Wanda++ improves the
+pruning score with regional gradients for the
+first time and proposes an efficient regional optimization method to minimize pruning-induced
+output discrepancies between the dense and
+sparse decoder output. Notably, Wanda++ improves perplexity by up to 32% over Wanda
+in the language modeling task and generalizes
+effectively to downstream tasks. Moreover, despite updating weights with regional optimization, Wanda++ remains orthogonal to sparsityaware fine-tuning, further reducing perplexity
+with LoRA in great extend. Our approach is
+lightweight, pruning a 7B LLaMA model in
+under 10 minutes on a single H100 GPU.
+          </p>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</section>
+
+<section class="section">
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method Overview</h2>
+        <div class="publication-video">
+                 <video id="dollyzoom" autoplay controls muted loop playsinline height="150%">
+            <source src="./static/videos/wanda_gif.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Wanda++ Pipeline Section -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Wanda++ Pipeline</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this paper, we demonstrate how Wanda++ can be used to reduce performance degradation with the use of decoder-level regional gradients from model pruning. Wanda++ prunes the model by iteratively applying our regional gradient score (RGS) and a regional optimization (RO) method.
+          </p>
+        </div>
+      </div>
+    </div>
+
+<img src="./static/images/method.png"
+     class="interpolation-image"
+     alt="Wanda++ Pipeline Diagram"
+     style="width: 150%; background: none; box-shadow: none;" />
+    </div>
+
+  <section class="section">
+ <!-- Experiments Section -->
+<div class="columns is-centered">
+  <div class="column is-full-width">
+    <h2 class="title is-3">Wikitext Perplexity and Downstream Tasks Performance</h2>
+    <div class="content has-text-justified">
+      <div style="overflow-x: auto;">
+        <table class="table is-bordered is-striped is-hoverable is-fullwidth is-size-7">
+          <thead>
+            <tr>
+              <th rowspan="2">Method</th>
+              <th rowspan="2">Sparsity</th>
+              <th colspan="4">LLaMA-1</th>
+              <th colspan="3">OpenLLaMA</th>
+              <th>LLaMA-3.1</th>
+            </tr>
+            <tr>
+              <th>7B</th><th>13B</th><th>30B</th><th>65B</th>
+              <th>3B</th><th>7B</th><th>70B</th><th>8B</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Baseline</td><td>-</td><td>5.68</td><td>5.09</td><td>4.77</td><td>3.56</td><td>7.27</td><td>6.49</td><td>4.30</td><td>6.39</td>
+            </tr>
+            <tr><td>SparseGPT*</td><td rowspan="6">0.5</td><td>7.22</td><td>6.21</td><td>5.31</td><td>4.57</td><td>10.41</td><td>8.57</td><td>-</td><td>-</td></tr>
+            <tr><td>Wanda*</td><td>7.26</td><td>6.15</td><td>5.24</td><td>4.57</td><td>12.37</td><td>9.15</td><td>5.25</td><td>9.99</td></tr>
+            <tr><td>GBLM</td><td>7.15</td><td>6.11</td><td>5.18</td><td>-</td><td>10.75</td><td>8.49</td><td>-</td><td>9.90</td></tr>
+            <tr><td><i>Wanda++ RO</i></td><td>7.07</td><td>6.08</td><td>5.12</td><td>4.43</td><td>9.86</td><td>8.27</td><td>5.14</td><td>9.34</td></tr>
+            <tr><td><i>Wanda++ RGS</i></td><td>7.18</td><td>6.12</td><td>5.15</td><td>4.48</td><td>10.78</td><td>8.50</td><td>5.19</td><td>9.92</td></tr>
+            <tr><td><i>Wanda++</i></td><td>7.02 (-3%)</td><td>6.00 (-2%)</td><td>5.10 (-3%)</td><td>4.43 (-3%)</td><td><b>9.25 (-25%)</b></td><td><b>7.82 (-15%)</b></td><td><b>5.11 (-3%)</b></td><td><b>9.22 (-7%)</b></td></tr>
+
+            <tr><td>SparseGPT*</td><td rowspan="6">2:4</td><td>11.00</td><td>9.11</td><td>7.16</td><td>6.28</td><td>15.91</td><td>11.62</td><td>-</td><td>-</td></tr>
+            <tr><td>Wanda*</td><td>11.53</td><td>9.58</td><td>6.90</td><td>6.25</td><td>28.04</td><td>15.35</td><td>6.47</td><td>24.83</td></tr>
+            <tr><td>GBLM</td><td>11.33</td><td>9.16</td><td>6.87</td><td>-</td><td>24.75</td><td>13.19</td><td>-</td><td>24.34</td></tr>
+            <tr><td><i>Wanda++ RO</i></td><td>10.78</td><td>7.89</td><td>6.51</td><td>5.86</td><td>19.41</td><td>11.69</td><td>6.37</td><td>19.43</td></tr>
+            <tr><td><i>Wanda++ RGS</i></td><td>11.46</td><td>9.44</td><td>6.93</td><td>6.23</td><td>24.77</td><td>13.27</td><td>6.40</td><td>24.54</td></tr>
+            <tr><td><i>Wanda++</i></td><td><b>9.43 (-19%)</b></td><td><b>7.75 (-20%)</b></td><td><b>6.39 (-7%)</b></td><td><b>5.59 (-11%)</b></td><td><b>19.03 (-32%)</b></td><td><b>11.30 (-26%)</b></td><td>6.35 (-2%)</td><td><b>18.32 (-26%)</b></td></tr>
+
+            <tr><td>SparseGPT*</td><td rowspan="6">4:8</td><td>8.61</td><td>7.40</td><td>6.17</td><td>5.38</td><td>12.20</td><td>9.79</td><td>-</td><td>-</td></tr>
+            <tr><td>Wanda*</td><td>8.57</td><td>7.40</td><td>5.97</td><td>5.30</td><td>16.83</td><td>11.38</td><td>5.73</td><td>14.63</td></tr>
+            <tr><td>GBLM</td><td>8.48</td><td>7.26</td><td>5.89</td><td>-</td><td>14.86</td><td>10.38</td><td>-</td><td>14.29</td></tr>
+            <tr><td><i>Wanda++ RO</i></td><td>8.34</td><td>7.18</td><td>5.73</td><td>5.11</td><td>13.10</td><td>9.52</td><td>5.67</td><td>12.88</td></tr>
+            <tr><td><i>Wanda++ RGS</i></td><td>8.58</td><td>7.33</td><td>5.90</td><td>5.17</td><td>14.92</td><td>10.42</td><td>5.70</td><td>14.32</td></tr>
+            <tr><td><i>Wanda++</i></td><td><b>7.88 (-8%)</b></td><td><b>6.75 (-9%)</b></td><td><b>5.65 (-5%)</b></td><td>5.07 (-4%)</td><td><b>12.54 (-25%)</b></td><td><b>9.42 (-17%)</b></td><td>5.65 (-1%)</td><td><b>12.55 (-14%)</b></td></tr>
+          </tbody>
+        </table>
+        <p style="font-size: 0.85em;">
+          <b>Table 1:</b>  Wikitext perplexity comparison on LLaMA-1, OpenLLaMA, and LLaMA-3.1 model families. <b>*</b> indicates results from either the previous papers. <code>-</code> means results are not available due to OOM or source code limitations. Bold numbers highlight ≥5% relative improvements over Wanda.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="columns is-centered">
+  <div class="column is-full-width">
+       <div class="content">
+      <div style="overflow-x: auto;">
+        <table class="table is-bordered is-striped is-hoverable is-fullwidth is-size-7">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Wic</th>
+              <th>Mrpc</th>
+              <th>Hellaswag</th>
+              <th>Arc_easy</th>
+              <th>Arc_challenge</th>
+              <th>Winogrande</th>
+              <th>BoolQ</th>
+              <th>RTE</th>
+              <th>MMLU</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Baseline</td>
+              <td>49.84</td><td>69.12</td><td>56.96</td><td>75.29</td><td>41.80</td><td>70.00</td><td>75.02</td><td>66.43</td><td>35.10</td>
+            </tr>
+            <tr>
+              <td>Wanda</td>
+              <td>48.75</td><td>46.81</td><td>41.66</td><td>59.34</td><td>27.47</td><td>61.96</td><td>69.60</td><td>49.82</td><td>25.85</td>
+            </tr>
+            <tr>
+              <td>GBLM</td>
+              <td>49.32</td><td>65.31</td><td>41.80</td><td>61.43</td><td>30.45</td><td>63.24</td><td><b>71.20</b></td><td>57.43</td><td>26.34</td>
+            </tr>
+            <tr>
+              <td><i>Wanda++ RGS</i></td>
+              <td>49.37 (1%)</td><td>64.46 (38%)</td><td>41.43 (-1%)</td><td>62.42 (5%)</td><td><b>31.06 (13%)</b></td>
+              <td>62.83 (1%)</td><td>67.95 (-2%)</td><td>58.48 (17%)</td><td>26.40 (-2%)</td>
+            </tr>
+            <tr>
+              <td><i>Wanda++</i></td>
+              <td><b>50.00 (2%)</b></td><td><b>68.38 (46%)</b></td><td><b>45.31 (8%)</b></td><td><b>63.72 (7%)</b></td><td>29.27 (6%)</td>
+              <td><b>65.04 (4%)</b></td><td>67.80 (-2%)</td><td><b>62.09 (24%)</b></td><td><b>27.52 (6%)</b></td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size: 0.85em;">
+         <b>Table 2:</b>  Accuracy (%) from LLaMA-1 7B under 2:4 sparsity in zero-shot setting. Bold values indicate best performance or ≥5% relative improvement over Wanda.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Combined with Recovery Training Section -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Combined with Recovery Training</h2>
+                <div class="content has-text-justified">
+          <p>
+            We show the Wanda++ can be combined with further recovery training to improve the performance of the pruned model. In this case, we use LoRA to recover the performance of the pruned model and show <b> Wanda++ w. LoRA perform better than Wanda w. LoRA </b>. However, other post-training methods like DPO, GRPO can also be combined for the recovery training.
+              </p>
+        </div>
+        <div class="content">
+          <div style="overflow-x: auto;">
+            <table class="table is-bordered is-striped is-hoverable is-fullwidth is-size-7">
+              <thead>
+                <tr>
+                  <th>Methods</th>
+                  <th>Dense</th>
+                  <th>Pruned Model</th>
+                  <th>After LoRA-tuned</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Wanda</td>
+                  <td>5.68</td>
+                  <td>11.59</td>
+                  <td>8.23 (-29%)</td>
+                </tr>
+                <tr>
+                  <td>Wanda++</td>
+                  <td>5.68</td>
+                  <td>9.43</td>
+                  <td>6.88 (-27%)</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="font-size: 0.85em;">
+              <b>Table 3:</b> Perplexity comparison on Wikitext with LoRA. All experiments are conducted on LLaMA-7B with 2:4 sparsity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--    &lt;!&ndash; Concurrent Work. &ndash;&gt;-->
+<!--    <div class="columns is-centered">-->
+<!--      <div class="column is-full-width">-->
+<!--        <h2 class="title is-3">Related Links</h2>-->
+
+<!--        <div class="content has-text-justified">-->
+<!--          <p>-->
+<!--            There's a lot of excellent work that was introduced around the same time as ours.-->
+<!--          </p>-->
+<!--          <p>-->
+<!--            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.-->
+<!--          </p>-->
+<!--          <p>-->
+<!--            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>-->
+<!--            both use deformation fields to model non-rigid scenes.-->
+<!--          </p>-->
+<!--          <p>-->
+<!--            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>-->
+<!--          </p>-->
+<!--          <p>-->
+<!--            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;/ Concurrent Work. &ndash;&gt;-->
+
+<!--  </div>-->
+<!--</section>-->
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+<pre style="text-align: left;"><code>@article{yang2025wanda++,
+  title={Wanda++: Pruning large language models via regional gradients},
+  author={Yang, Yifan and Zhen, Kai and Ganesh, Bhavana and Galstyan, Aram and Huybrechts, Goeric and M{\"u}ller, Markus and K{\"u}bler, Jonas M and Swaminathan, Rupak Vignesh and Mouchtaris, Athanasios and Bodapati, Sravan Babu and others},
+  journal={arXiv preprint arXiv:2503.04992},
+  year={2025}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is adapted from Nerfies and GLIGEN, licensed under a Creative Commons Attribution-ShareAlike 4.0 International License. This website is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
